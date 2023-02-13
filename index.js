@@ -22,7 +22,7 @@ const initializeDbAndServer = async () => {
       driver: sqlite3.Database,
     });
     app.listen(PORT, () => {
-      console.log("Server Running at ${PORT}");
+      console.log("Server Running at PORT");
     });
   } catch (e) {
     console.log(`DBError: ${e.message}`);
