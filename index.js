@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 
 const dbPath = path.join(__dirname, "accounts.db");
 const app = express();
+const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname + "/public")))
@@ -20,8 +21,8 @@ const initializeDbAndServer = async () => {
       filename: dbPath,
       driver: sqlite3.Database,
     });
-    app.listen(5000, () => {
-      console.log("Server Running at http://localhost:5000");
+    app.listen(PORT, () => {
+      console.log("Server Running at ${PORT}");
     });
   } catch (e) {
     console.log(`DBError: ${e.message}`);
